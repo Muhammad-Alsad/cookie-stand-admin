@@ -7,6 +7,7 @@ export default function Home() {
   const [maxCustomers, setMaxCustomers] = useState("");
   const [avgCookies, setAvgCookies] = useState("");
   const [jsonString, setJsonString] = useState("");
+  const [showReportText, setShowReportText] = useState(true); 
 
   function submitHandler(event) {
     event.preventDefault();
@@ -19,6 +20,7 @@ export default function Home() {
     };
 
     setJsonString(JSON.stringify(cookieStand, null, 2));
+    setShowReportText(false);
   }
 
   return (
@@ -112,8 +114,12 @@ export default function Home() {
         </form>
 
         <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-md shadow-md">
+          {showReportText && (
+            <p className="text-blue-900">Report Table Coming Soon...</p>
+          )}
           <code className="block text-blue-900">{jsonString}</code>
         </div>
+
 
       </main>
       <footer className="bg-green-500 p-4">
